@@ -10,10 +10,10 @@ variable "az" {
   default = "us-east-1c"
 }
 
-variable "ami" {
-  description = "AMI ID to use for the instance (Ubuntu 22.04 LTS recommended)"
+variable "AmazonLinuxAmi" {
+  description = "Amazon Linux AMI"
   type        = string
-  default     = "ami-0a7d80731ae1b2435" # example for us-east-1; update as needed
+  default     = "ami-03c4f11b50838ab5d" # example for us-east-1; update as needed
 }
 
 variable "instance_type" {
@@ -25,7 +25,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "Name to assign to the created AWS key pair"
   type        = string
-  default     = "lab-03-key"
+  default     = "chaveSSH"
 }
 
 variable "public_key_path" {
@@ -34,8 +34,14 @@ variable "public_key_path" {
   default     = "C:/Users/Caio/.ssh/id_rsa.pub"
 }
 
-variable "ssh_cidr" {
+variable "cidr" {
   description = "CIDR range allowed to SSH into the instance"
   type        = string
   default     = "0.0.0.0/0"
+}
+
+variable "domain" {
+  description = "variavel de dominio"
+  type = string
+  default = "caio.ifes.com"
 }
