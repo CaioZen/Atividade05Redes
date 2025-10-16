@@ -118,7 +118,9 @@ resource "aws_instance" "Server" {
   vpc_security_group_ids      = [aws_security_group.SG.id]
   subnet_id                   = aws_subnet.subnetPublica.id
   associate_public_ip_address = true
-  #user_data                   = file("server_user_data")
+  tags = {
+    Name = "Server"
+  }
 }
 
 resource "aws_instance" "Cliente" {
